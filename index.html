@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PATINA — магазин винтажной одежды. Курированная коллекция из 60-х, 70-х, 80-х и 90-х годов.">
+    <meta property="og:title" content="PATINA — Vintage Clothing Store">
+    <meta property="og:description" content="Curated vintage fashion from the 60s to 90s. Every piece has a story.">
+    <meta property="og:type" content="website">
+    <title>PATINA — Vintage Clothing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- CUSTOM CURSOR -->
+    <div class="cursor" id="cursor">
+        <div class="cursor__needle">
+            <div class="cursor__needle-eye"></div>
+            <div class="cursor__needle-body"></div>
+            <div class="cursor__needle-tip"></div>
+        </div>
+    </div>
+
+    <!-- FILM GRAIN OVERLAY (global) -->
+    <div class="grain" id="grain"></div>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container header__inner">
+            <a href="#" class="logo">PATINA</a>
+            <nav class="nav" id="nav">
+                <a href="#epochs" class="nav__link" data-i18n="nav_epochs">Эпохи</a>
+                <a href="#catalog" class="nav__link" data-i18n="nav_catalog">Каталог</a>
+                <a href="#lookbook" class="nav__link" data-i18n="nav_lookbook">Lookbook</a>
+                <a href="#process" class="nav__link" data-i18n="nav_process">Наш подход</a>
+                <a href="#reviews" class="nav__link" data-i18n="nav_reviews">Отзывы</a>
+            </nav>
+            <div class="header__right">
+                <button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button>
+                <button class="cart-btn" id="cartBtn" aria-label="Cart">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                    <span class="cart-btn__count" id="cartCount">0</span>
+                </button>
+                <button class="burger" id="burger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero__scanlines"></div>
+        <div class="hero__vignette"></div>
+        <div class="hero__polaroids">
+            <div class="polaroid polaroid--1"><div class="polaroid__img" style="--hue:15;"></div><p>Paris, 1972</p></div>
+            <div class="polaroid polaroid--2"><div class="polaroid__img" style="--hue:35;"></div><p>London, 1968</p></div>
+            <div class="polaroid polaroid--3"><div class="polaroid__img" style="--hue:340;"></div><p>New York, 1985</p></div>
+            <div class="polaroid polaroid--4"><div class="polaroid__img" style="--hue:25;"></div><p>Milan, 1978</p></div>
+            <div class="polaroid polaroid--5"><div class="polaroid__img" style="--hue:45;"></div><p>Tokyo, 1991</p></div>
+        </div>
+        <div class="container hero__inner">
+            <div class="hero__content">
+                <div class="hero__stamp" data-i18n="hero_stamp">EST. 2019</div>
+                <h1 class="hero__title" id="heroTitle"></h1>
+                <div class="hero__typewriter-line"></div>
+                <p class="hero__subtitle" data-i18n="hero_sub">Курированная коллекция винтажной одежды из знаковых эпох моды. Каждая вещь прошла отбор, реставрацию и получила вторую жизнь.</p>
+                <div class="hero__actions">
+                    <a href="#catalog" class="btn btn--primary" data-i18n="hero_cta1">Смотреть коллекцию</a>
+                    <a href="#epochs" class="btn btn--outline" data-i18n="hero_cta2">Выбрать эпоху</a>
+                </div>
+                <div class="hero__ticker">
+                    <span>60s</span><span class="hero__ticker-dot"></span>
+                    <span>70s</span><span class="hero__ticker-dot"></span>
+                    <span>80s</span><span class="hero__ticker-dot"></span>
+                    <span>90s</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero__scroll">
+            <div class="hero__scroll-text" data-i18n="hero_scroll">Листайте</div>
+            <div class="hero__scroll-arrow">
+                <svg width="16" height="24" viewBox="0 0 16 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 0v20m0 0l-6-6m6 6l6-6"/></svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- EPOCHS -->
+    <section class="epochs" id="epochs">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-label" data-i18n="ep_label">Путешествие во времени</span>
+                <h2 class="section-title" data-i18n="ep_title">Выберите эпоху</h2>
+            </div>
+            <div class="epochs__grid">
+                <a href="#catalog" class="epoch-card" data-filter="60s">
+                    <div class="epoch-card__decade">60<span>s</span></div>
+                    <div class="epoch-card__info">
+                        <h3 data-i18n="ep_60s">Шестидесятые</h3>
+                        <p data-i18n="ep_60s_desc">Мини-юбки, мод-стиль, геометрические принты. Эпоха свободы и экспериментов.</p>
+                        <span class="epoch-card__count" data-i18n="ep_60s_count">12 вещей</span>
+                    </div>
+                </a>
+                <a href="#catalog" class="epoch-card" data-filter="70s">
+                    <div class="epoch-card__decade">70<span>s</span></div>
+                    <div class="epoch-card__info">
+                        <h3 data-i18n="ep_70s">Семидесятые</h3>
+                        <p data-i18n="ep_70s_desc">Клёш, замша, бохо-шик. Хиппи-культура и дискотека в одном флаконе.</p>
+                        <span class="epoch-card__count" data-i18n="ep_70s_count">18 вещей</span>
+                    </div>
+                </a>
+                <a href="#catalog" class="epoch-card" data-filter="80s">
+                    <div class="epoch-card__decade">80<span>s</span></div>
+                    <div class="epoch-card__info">
+                        <h3 data-i18n="ep_80s">Восьмидесятые</h3>
+                        <p data-i18n="ep_80s_desc">Оверсайз, неон, power-плечи. Дерзость, гламур и MTV-эстетика.</p>
+                        <span class="epoch-card__count" data-i18n="ep_80s_count">15 вещей</span>
+                    </div>
+                </a>
+                <a href="#catalog" class="epoch-card" data-filter="90s">
+                    <div class="epoch-card__decade">90<span>s</span></div>
+                    <div class="epoch-card__info">
+                        <h3 data-i18n="ep_90s">Девяностые</h3>
+                        <p data-i18n="ep_90s_desc">Гранж, минимализм, деним. Эпоха супермоделей и уличной моды.</p>
+                        <span class="epoch-card__count" data-i18n="ep_90s_count">21 вещь</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATALOG -->
+    <section class="catalog" id="catalog">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-label" data-i18n="cat_label">Коллекция</span>
+                <h2 class="section-title" data-i18n="cat_title">Каталог</h2>
+            </div>
+            <div class="catalog__filters">
+                <button class="catalog__filter active" data-filter="all" data-i18n="f_all">Все</button>
+                <button class="catalog__filter" data-filter="60s">60s</button>
+                <button class="catalog__filter" data-filter="70s">70s</button>
+                <button class="catalog__filter" data-filter="80s">80s</button>
+                <button class="catalog__filter" data-filter="90s">90s</button>
+                <span class="catalog__divider"></span>
+                <button class="catalog__filter" data-filter="dresses" data-i18n="f_dress">Платья</button>
+                <button class="catalog__filter" data-filter="jackets" data-i18n="f_jacket">Куртки</button>
+                <button class="catalog__filter" data-filter="accessories" data-i18n="f_acc">Аксессуары</button>
+            </div>
+            <div class="catalog__grid" id="catalogGrid">
+                <div class="product-card" data-epoch="70s" data-type="dresses" data-price="4800" data-name="Платье-макси Sunset">
+                    <div class="product-card__img"><div class="product-card__swatch" style="--c1:#c4816e;--c2:#e8b98a;"></div><span class="product-card__era">70s</span></div>
+                    <div class="product-card__info">
+                        <p class="product-card__era-label">1974</p>
+                        <h3>Sunset Maxi</h3>
+                        <p class="product-card__desc" data-i18n="p1_desc">Шифоновое платье-макси, цветочный принт</p>
+                        <div class="product-card__bottom">
+                            <span class="product-card__price">4 800 ₽</span>
+                            <button class="product-card__cart" data-i18n="btn_cart">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-epoch="80s" data-type="jackets" data-price="7200" data-name="Кожаная куртка Rebel">
+                    <div class="product-card__img"><div class="product-card__swatch" style="--c1:#2c1810;--c2:#5c3a28;"></div><span class="product-card__era">80s</span></div>
+                    <div class="product-card__info">
+                        <p class="product-card__era-label">1986</p>
+                        <h3>Rebel Leather</h3>
+                        <p class="product-card__desc" data-i18n="p2_desc">Кожаная куртка-косуха, оригинальная фурнитура</p>
+                        <div class="product-card__bottom">
+                            <span class="product-card__price">7 200 ₽</span>
+                            <button class="product-card__cart" data-i18n="btn_cart">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-epoch="60s" data-type="dresses" data-price="5500" data-name="Мод-платье Twiggy">
+                    <div class="product-card__img"><div class="product-card__swatch" style="--c1:#e8d5c4;--c2:#f5ebe0;"></div><span class="product-card__era">60s</span></div>
+                    <div class="product-card__info">
+                        <p class="product-card__era-label">1966</p>
+                        <h3>Twiggy Mod</h3>
+                        <p class="product-card__desc" data-i18n="p3_desc">A-силуэт, геометрический принт, мод-стиль</p>
+                        <div class="product-card__bottom">
+                            <span class="product-card__price">5 500 ₽</span>
+                            <button class="product-card__cart" data-i18n="btn_cart">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-epoch="90s" data-type="jackets" data-price="3900" data-name="Деним оверсайз Grunge">
+                    <div class="product-card__img"><div class="product-card__swatch" style="--c1:#6b8cae;--c2:#a3c1d9;"></div><span class="product-card__era">90s</span></div>
+                    <div class="product-card__info">
+                        <p class="product-card__era-label">1993</p>
+                        <h3>Grunge Denim</h3>
+                        <p class="product-card__desc" data-i18n="p4_desc">Джинсовая куртка оверсайз, вареный деним</p>
+                        <div class="product-card__bottom">
+                            <span class="product-card__price">3 900 ₽</span>
+                            <button class="product-card__cart" data-i18n="btn_cart">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-epoch="70s" data-type="accessories" data-price="2800" data-name="Кожаная сумка Sahara">
+                    <div class="product-card__img"><div class="product-card__swatch" style="--c1:#b8956a;--c2:#d4b896;"></div><span class="product-card__era">70s</span></div>
+                    <div class="product-card__info">
+                        <p class="product-card__era-label">1977</p>
+                        <h3>Sahara Bag</h3>
+                        <p class="product-card__desc" data-i18n="p5_desc">Кожаная сумка с бахромой, ручная работа</p>
+                        <div class="product-card__bottom">
+                            <span class="product-card__price">2 800 ₽</span>
+                            <button class="product-card__cart" data-i18n="btn_cart">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-epoch="80s" data-type="dresses" data-price="4200" data-name="Бархатное платье Velvet">
+                    <div class="product-card__img"><div class="product-card__swatch" style="--c1:#6b2d5b;--c2:#9b4d8b;"></div><span class="product-card__era">80s</span></div>
+                    <div class="product-card__info">
+                        <p class="product-card__era-label">1984</p>
+                        <h3>Velvet Dream</h3>
+                        <p class="product-card__desc" data-i18n="p6_desc">Бархатное коктейльное платье, пышные рукава</p>
+                        <div class="product-card__bottom">
+                            <span class="product-card__price">4 200 ₽</span>
+                            <button class="product-card__cart" data-i18n="btn_cart">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-epoch="90s" data-type="accessories" data-price="1900" data-name="Солнечные очки Matrix">
+                    <div class="product-card__img"><div class="product-card__swatch" style="--c1:#1a1a1a;--c2:#333;"></div><span class="product-card__era">90s</span></div>
+                    <div class="product-card__info">
+                        <p class="product-card__era-label">1997</p>
+                        <h3>Matrix Shades</h3>
+                        <p class="product-card__desc" data-i18n="p7_desc">Узкие солнечные очки, культовый силуэт 90-х</p>
+                        <div class="product-card__bottom">
+                            <span class="product-card__price">1 900 ₽</span>
+                            <button class="product-card__cart" data-i18n="btn_cart">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card" data-epoch="60s" data-type="accessories" data-price="3400" data-name="Шляпа-клош Bardot">
+                    <div class="product-card__img"><div class="product-card__swatch" style="--c1:#d4c5a9;--c2:#e8dcc8;"></div><span class="product-card__era">60s</span></div>
+                    <div class="product-card__info">
+                        <p class="product-card__era-label">1962</p>
+                        <h3>Bardot Cloche</h3>
+                        <p class="product-card__desc" data-i18n="p8_desc">Фетровая шляпа-клош, классический французский стиль</p>
+                        <div class="product-card__bottom">
+                            <span class="product-card__price">3 400 ₽</span>
+                            <button class="product-card__cart" data-i18n="btn_cart">В корзину</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-label" data-i18n="proc_label">Наш подход</span>
+                <h2 class="section-title" data-i18n="proc_title">Как мы отбираем вещи</h2>
+            </div>
+            <div class="process__steps">
+                <div class="process__step">
+                    <div class="process__icon">01</div>
+                    <h3 data-i18n="proc_s1_t">Поиск</h3>
+                    <p data-i18n="proc_s1_d">Объезжаем блошиные рынки, секонд-хенды и частные коллекции Европы и Японии.</p>
+                </div>
+                <div class="process__connector"></div>
+                <div class="process__step">
+                    <div class="process__icon">02</div>
+                    <h3 data-i18n="proc_s2_t">Отбор</h3>
+                    <p data-i18n="proc_s2_d">Только подлинный винтаж. Проверяем бирки, фурнитуру, ткань и историю каждой вещи.</p>
+                </div>
+                <div class="process__connector"></div>
+                <div class="process__step">
+                    <div class="process__icon">03</div>
+                    <h3 data-i18n="proc_s3_t">Реставрация</h3>
+                    <p data-i18n="proc_s3_d">Бережная чистка, ремонт, замена фурнитуры. Возвращаем вещи к жизни, сохраняя характер.</p>
+                </div>
+                <div class="process__connector"></div>
+                <div class="process__step">
+                    <div class="process__icon">04</div>
+                    <h3 data-i18n="proc_s4_t">К вам</h3>
+                    <p data-i18n="proc_s4_d">Упаковка в крафт-бумагу, открытка с историей вещи, доставка по всей России.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOOKBOOK -->
+    <section class="lookbook" id="lookbook">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-label" data-i18n="lb_label">Вдохновение</span>
+                <h2 class="section-title" data-i18n="lb_title">Lookbook</h2>
+            </div>
+            <div class="lookbook__grid">
+                <div class="lookbook__card lookbook__card--tall">
+                    <div class="lookbook__img" style="--c1:#c4816e;--c2:#e8b98a;--c3:#d4a080;"></div>
+                    <div class="lookbook__overlay">
+                        <span>Bohemian Summer</span>
+                        <p data-i18n="lb_1">70-е / Макси + замша + бахрома</p>
+                    </div>
+                </div>
+                <div class="lookbook__card">
+                    <div class="lookbook__img" style="--c1:#2c1810;--c2:#5c3a28;--c3:#8b6c4a;"></div>
+                    <div class="lookbook__overlay">
+                        <span>Rebel Night</span>
+                        <p data-i18n="lb_2">80-е / Кожа + неон + power-плечи</p>
+                    </div>
+                </div>
+                <div class="lookbook__card">
+                    <div class="lookbook__img" style="--c1:#6b8cae;--c2:#a3c1d9;--c3:#8ba8c4;"></div>
+                    <div class="lookbook__overlay">
+                        <span>Grunge Days</span>
+                        <p data-i18n="lb_3">90-е / Деним + фланель + Doc Martens</p>
+                    </div>
+                </div>
+                <div class="lookbook__card lookbook__card--wide">
+                    <div class="lookbook__img" style="--c1:#e8d5c4;--c2:#f5ebe0;--c3:#d4c5b0;"></div>
+                    <div class="lookbook__overlay">
+                        <span>Mod Chic</span>
+                        <p data-i18n="lb_4">60-е / Геометрия + мини + монохром</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-label" data-i18n="rev_label">Отзывы</span>
+                <h2 class="section-title" data-i18n="rev_title">Что говорят наши клиенты</h2>
+            </div>
+            <div class="reviews__grid">
+                <div class="review-card">
+                    <div class="review-card__quote">&ldquo;</div>
+                    <p class="review-card__text" data-i18n="r1_text">Заказала платье из 70-х — оно идеально. Видно, что вещь прошла реставрацию с любовью. Приехало в крафтовой упаковке с открыткой. Влюбилась!</p>
+                    <div class="review-card__author">
+                        <strong data-i18n="r1_name">Алина М.</strong>
+                        <span>Sunset Maxi — 70s</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-card__quote">&ldquo;</div>
+                    <p class="review-card__text" data-i18n="r2_text">Косуха 86-го года — это шедевр. Мягчайшая кожа, оригинальные молнии. Ничего подобного в обычных магазинах не найти.</p>
+                    <div class="review-card__author">
+                        <strong data-i18n="r2_name">Дмитрий К.</strong>
+                        <span>Rebel Leather — 80s</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-card__quote">&ldquo;</div>
+                    <p class="review-card__text" data-i18n="r3_text">Третий заказ и все идеально. Отдельный восторг — история каждой вещи на открытке. Чувствуешь связь с прошлым.</p>
+                    <div class="review-card__author">
+                        <strong data-i18n="r3_name">Мария Л.</strong>
+                        <span>Bardot Cloche — 60s</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ORDER -->
+    <section class="order" id="order">
+        <div class="container">
+            <div class="order__inner">
+                <div class="order__content">
+                    <span class="section-label" data-i18n="ord_label">Быстрый заказ</span>
+                    <h2 class="section-title" style="text-align:left;" data-i18n="ord_title">Оформить заказ</h2>
+                    <p class="order__desc" data-i18n="ord_desc">Оставьте заявку, и мы свяжемся с вами в течение часа. Каждый заказ упаковывается вручную.</p>
+                    <ul class="order__perks">
+                        <li data-i18n="ord_p1">Бесплатная доставка от 5 000 ₽</li>
+                        <li data-i18n="ord_p2">Крафтовая упаковка с историей вещи</li>
+                        <li data-i18n="ord_p3">Возврат 14 дней без вопросов</li>
+                        <li data-i18n="ord_p4">Консультация по размеру и стилю</li>
+                    </ul>
+                </div>
+                <form class="order__form" id="orderForm">
+                    <div class="form-group">
+                        <label data-i18n="form_name">Ваше имя</label>
+                        <input type="text" name="name" required placeholder="Имя">
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="form_phone">Телефон</label>
+                        <input type="tel" name="phone" required placeholder="+7 (999) 123-45-67">
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="form_comment">Комментарий</label>
+                        <textarea name="comment" rows="3" placeholder="Укажите товар и размер"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full" data-i18n="form_submit">Отправить заявку</button>
+                    <p class="order__note" data-i18n="form_note">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- CART MODAL -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-modal__overlay" id="cartOverlay"></div>
+        <div class="cart-modal__panel">
+            <div class="cart-modal__header">
+                <h3 data-i18n="cart_title">Корзина</h3>
+                <button class="cart-modal__close" id="cartClose" aria-label="Close">&times;</button>
+            </div>
+            <div class="cart-modal__body" id="cartBody">
+                <p class="cart-modal__empty" data-i18n="cart_empty">Корзина пуста</p>
+            </div>
+            <div class="cart-modal__footer" id="cartFooter" style="display:none;">
+                <div class="cart-modal__total">
+                    <span data-i18n="cart_total">Итого:</span>
+                    <strong id="cartTotal">0 ₽</strong>
+                </div>
+                <a href="#order" class="btn btn--primary btn--full" id="cartCheckout" data-i18n="cart_checkout">Оформить</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div class="footer__top">
+                <div class="footer__brand">
+                    <a href="#" class="logo logo--footer">PATINA</a>
+                    <p class="footer__tagline" data-i18n="ft_tagline">Винтажная одежда с историей. Каждая вещь уникальна.</p>
+                </div>
+                <div class="footer__links">
+                    <h4 data-i18n="ft_nav">Навигация</h4>
+                    <a href="#epochs" data-i18n="nav_epochs">Эпохи</a>
+                    <a href="#catalog" data-i18n="nav_catalog">Каталог</a>
+                    <a href="#lookbook" data-i18n="nav_lookbook">Lookbook</a>
+                    <a href="#process" data-i18n="nav_process">Наш подход</a>
+                </div>
+                <div class="footer__links">
+                    <h4 data-i18n="ft_contacts">Контакты</h4>
+                    <a href="mailto:hello@patina-vintage.com">hello@patina-vintage.com</a>
+                    <a href="tel:+78001234567">+7 (800) 123-45-67</a>
+                    <div class="footer__socials">
+                        <a href="#" class="footer__social" aria-label="Telegram">TG</a>
+                        <a href="#" class="footer__social" aria-label="Instagram">IG</a>
+                        <a href="#" class="footer__social" aria-label="Pinterest">PIN</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2026 PATINA. <span data-i18n="ft_rights">Все права защищены.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
