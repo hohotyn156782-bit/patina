@@ -254,11 +254,8 @@ a,button,input,select,textarea,[role="button"]{cursor:none}
 }
 .polaroid__img{
     width:120px;height:140px;
-    background:linear-gradient(135deg,
-        hsl(var(--hue),30%,75%),
-        hsl(var(--hue),25%,85%),
-        hsl(var(--hue),35%,70%)
-    );
+    object-fit:cover;
+    display:block;
     filter:sepia(0.3) saturate(0.8);
 }
 .polaroid p{
@@ -443,13 +440,13 @@ a,button,input,select,textarea,[role="button"]{cursor:none}
     display:flex;align-items:center;justify-content:center;
     background:var(--cream);
 }
-.product-card__swatch{
-    width:100px;height:120px;border-radius:4px;
-    background:linear-gradient(135deg,var(--c1),var(--c2));
+.product-card__photo{
+    width:100%;height:100%;
+    object-fit:cover;
     filter:sepia(0.15);
     transition:var(--transition);
 }
-.product-card:hover .product-card__swatch{transform:scale(1.06);filter:sepia(0)}
+.product-card:hover .product-card__photo{transform:scale(1.06);filter:sepia(0)}
 .product-card__era{
     position:absolute;top:12px;right:12px;
     font-family:'Special Elite',monospace;
@@ -530,7 +527,8 @@ a,button,input,select,textarea,[role="button"]{cursor:none}
 
 .lookbook__img{
     width:100%;height:100%;
-    background:linear-gradient(135deg,var(--c1),var(--c2),var(--c3));
+    object-fit:cover;
+    display:block;
     filter:sepia(0.2) saturate(0.85);
     transition:var(--transition);
 }
